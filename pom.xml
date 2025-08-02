@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.harsh</groupId>
     <artifactId>Spring-Hibernate</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -15,13 +15,15 @@
     </properties>
 
     <dependencies>
-      
-<dependency>
-    <groupId>com.mysql</groupId>
-    <artifactId>mysql-connector-j</artifactId>
-    <version>8.3.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+
+
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
+        </dependency>
+
 <dependency>
     <groupId>org.hibernate.orm</groupId>
     <artifactId>hibernate-core</artifactId>
