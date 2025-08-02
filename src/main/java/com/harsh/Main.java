@@ -16,19 +16,33 @@ public class Main {
         a1.setAname("Rohit");
         a1.setTech("Java");
 
-        //create a configuration
-        Configuration config= new Configuration();
+        // Step 1: Create a Hibernate Configuration object
+        Configuration config = new Configuration();
+
+// Step 2: Add your annotated entity class (mapped to a table)
+// Replace 'com.harsh.Alien' with your actual entity class path
         config.addAnnotatedClass(com.harsh.Alien.class);
-        //load a config
+
+// Step 3: Load the configuration from hibernate.cfg.xml
+// Make sure hibernate.cfg.xml is in src/main/resources or classpath
         config.configure("hibernate.cfg.xml");
 
-        SessionFactory   factory= config.buildSessionFactory();
+// Step 4: Build the SessionFactory (heavy object, typically one per application)
+        SessionFactory factory = config.buildSessionFactory();
+
+// Step 5: Open a session to interact with the database
         Session session = factory.openSession();
-        //start the transaction to store data  in db
+
+// Step 6: Start a transaction (all DB operations must be within a transaction)
         Transaction transaction = session.beginTransaction();
+
+// Step 7: Save an entity object to the database
+// 'a1' must be an instance of Alien (or your entity class)
         session.persist(a1);
-        //commit the changes to database
+
+// Step 8: Commit the transaction to finalize changes
         transaction.commit();
+
 
 
 
