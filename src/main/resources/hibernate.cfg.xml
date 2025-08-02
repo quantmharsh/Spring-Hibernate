@@ -5,8 +5,8 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">1804</property>
         
-<!--   Need to create a table in database   using hibernateMapping to data definetion language  -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+<!--   Need to create or update  a table in database   using hibernateMapping to data definetion language  -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
 <!--       To see the query that hibernate is using behind the scenes to store data-->
         <property name="hibernate.show_sql">true</property>
     </session-factory>
