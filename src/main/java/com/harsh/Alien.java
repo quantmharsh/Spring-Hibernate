@@ -1,9 +1,6 @@
 package com.harsh;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 //to treat this class as a table
 //to rename or having diffrent name in db we can use name="newname". use same name is hql
@@ -19,9 +16,20 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
+    @ManyToOne()
+    @JoinColumn(name="planet_id")
+    private Planet planet;
 
     public int getAid() {
         return aid;
+    }
+
+    public Planet getPlanet() {
+        return planet;
+    }
+
+    public void setPlanet(Planet planet) {
+        this.planet = planet;
     }
 
     public void setAid(int aid) {
