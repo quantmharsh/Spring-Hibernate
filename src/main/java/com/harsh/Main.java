@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -49,11 +51,22 @@ public class Main {
 
 
         // UPDATE DATA (TRANSACTION required). it can also be used to create new record
-        session.merge(a1);
+//        session.merge(a1);
 
         // DELETE DATA
-        Alien a2= session.find(Alien.class , 102);
-        session.remove(a2);
+//        Alien a2= session.find(Alien.class , 102);
+//        session.remove(a2);
+
+        //FETCH ALL ALIENS
+        List<Alien> alienList  =session.createQuery("from Alien" , Alien.class).getResultList();
+
+            System.out.println("Alien:"+alienList);
+
+        //COUNT TOTAL  Aliens
+        Long count =session.createQuery(" select  count(aid) from Alien " , Long.class).getResultCount();
+        System.out.println("Total Aliens in db  " +count);
+
+
 // Step 8: Commit the transaction to finalize changes
         transaction.commit();
 
