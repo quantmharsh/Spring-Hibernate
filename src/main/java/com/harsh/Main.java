@@ -89,8 +89,11 @@ public class Main {
         List<Object[]>list1=session.createQuery("SELECT p.pname ,  COUNT(a) FROM Alien a JOIN a.planet p  GROUP BY p.pname" , Object[].class).getResultList();
         for(Object[] row: list1)
         {
+            //convert object into string , long
+            //type casting
             String planetName=(String) row[0];
             Long alienCount = (Long) row[1];
+
             //Another Query to get names of that aliens
             List<String>anames=session.createQuery("SELECT a.aname From Alien a WHERE a.planet.pname= :pname",String.class).setParameter("pname" , planetName).getResultList();
             System.out.println(planetName + ": " + alienCount + " Aliens " + anames);

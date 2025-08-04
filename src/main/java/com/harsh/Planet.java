@@ -13,7 +13,7 @@ public class Planet {
     private  int  pid;
     private String pname;
 
-    @OneToMany(mappedBy = "planet") //Planet is parent. map to planet fild in Aliens
+    @OneToMany(mappedBy = "planet") //Planet is parent. map to planet field in Aliens
     private List<Alien> aliens;
 
     public int getPid() {
